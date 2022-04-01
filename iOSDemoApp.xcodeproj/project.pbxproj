@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		3C224701C8B2791C9798658C /* Pods_iOSDemoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBD0324564435CCC2957DA17 /* Pods_iOSDemoApp.framework */; };
+		D57D0C8E27F215C900896D3F /* NetworkEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57D0C8D27F215C900896D3F /* NetworkEnvironment.swift */; };
+		D57D0C9027F216FD00896D3F /* ViewCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57D0C8F27F216FD00896D3F /* ViewCodable.swift */; };
+		D57D0C9327F2270300896D3F /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57D0C9227F2270300896D3F /* UIView+Extension.swift */; };
+		D5B03A8127F4B03B007EB123 /* PagingCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B03A8027F4B03B007EB123 /* PagingCollectionViewLayout.swift */; };
 		D5D369B626EBEF9A00903003 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D369B526EBEF9A00903003 /* AppDelegate.swift */; };
 		D5D369BF26EBEF9F00903003 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5D369BE26EBEF9F00903003 /* Assets.xcassets */; };
 		D5D369C226EBEF9F00903003 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5D369C026EBEF9F00903003 /* LaunchScreen.storyboard */; };
@@ -18,6 +22,10 @@
 /* Begin PBXFileReference section */
 		5C3ED72C2250583FA75D0B01 /* Pods-iOSDemoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSDemoApp.release.xcconfig"; path = "Target Support Files/Pods-iOSDemoApp/Pods-iOSDemoApp.release.xcconfig"; sourceTree = "<group>"; };
 		9A4EC48955365E5499D01374 /* Pods-iOSDemoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSDemoApp.debug.xcconfig"; path = "Target Support Files/Pods-iOSDemoApp/Pods-iOSDemoApp.debug.xcconfig"; sourceTree = "<group>"; };
+		D57D0C8D27F215C900896D3F /* NetworkEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEnvironment.swift; sourceTree = "<group>"; };
+		D57D0C8F27F216FD00896D3F /* ViewCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCodable.swift; sourceTree = "<group>"; };
+		D57D0C9227F2270300896D3F /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		D5B03A8027F4B03B007EB123 /* PagingCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingCollectionViewLayout.swift; sourceTree = "<group>"; };
 		D5D369B226EBEF9A00903003 /* iOSDemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSDemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5D369B526EBEF9A00903003 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D5D369BE26EBEF9F00903003 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -57,6 +65,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D57D0C9127F2176500896D3F /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				D5B03A8027F4B03B007EB123 /* PagingCollectionViewLayout.swift */,
+				D57D0C8D27F215C900896D3F /* NetworkEnvironment.swift */,
+				D57D0C8F27F216FD00896D3F /* ViewCodable.swift */,
+				D57D0C9227F2270300896D3F /* UIView+Extension.swift */,
+			);
+			path = Commons;
+			sourceTree = "<group>";
+		};
 		D5D369A926EBEF9A00903003 = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +97,7 @@
 		D5D369B426EBEF9A00903003 /* iOSDemoApp */ = {
 			isa = PBXGroup;
 			children = (
+				D57D0C9127F2176500896D3F /* Commons */,
 				D5D369C926EBEFEF00903003 /* Main */,
 				D5D369B526EBEF9A00903003 /* AppDelegate.swift */,
 				D5D369BE26EBEF9F00903003 /* Assets.xcassets */,
@@ -104,7 +124,6 @@
 			buildConfigurationList = D5D369C626EBEF9F00903003 /* Build configuration list for PBXNativeTarget "iOSDemoApp" */;
 			buildPhases = (
 				24CC0103F6449B2A24778DE1 /* [CP] Check Pods Manifest.lock */,
-				D5A8E44726FBEAF500D57E79 /* ShellScript */,
 				D5D369AE26EBEF9A00903003 /* Sources */,
 				D5D369AF26EBEF9A00903003 /* Frameworks */,
 				D5D369B026EBEF9A00903003 /* Resources */,
@@ -186,23 +205,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D5A8E44726FBEAF500D57E79 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -210,7 +212,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5B03A8127F4B03B007EB123 /* PagingCollectionViewLayout.swift in Sources */,
 				D5D369B626EBEF9A00903003 /* AppDelegate.swift in Sources */,
+				D57D0C9027F216FD00896D3F /* ViewCodable.swift in Sources */,
+				D57D0C8E27F215C900896D3F /* NetworkEnvironment.swift in Sources */,
+				D57D0C9327F2270300896D3F /* UIView+Extension.swift in Sources */,
 				D5D369CC26EBEFFB00903003 /* InitialViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
